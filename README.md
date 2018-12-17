@@ -1,7 +1,7 @@
-# gene.iobio.local
-Locally installed gene.iobio
+# iobio.local
+IOBIO backend stack
 
-This repository contains scripts and config files for locally deploy gene.iobio on any docker-enabled servers
+This repository contains scripts and config files for locally deploy IOBIO backend on any docker-enabled servers
 
 # Prerequisites
   * Docker 1.7.1 or newer  [install doc](https://docs.docker.com/engine/installation/linux/)
@@ -22,13 +22,13 @@ with `/etc/hosts` on both the server and the clients.
 
 ## Quick-Start
 ```bash
-git clone --recursive https://github.com/yiq/gene.iobio.local
-cd gene.iobio.local
-./fetch-data.sh        # this will take a while.  (1)
-./fetch-images.sh      # optional (2)
-./start.sh change-me   # the argument is the hostname  (3)
+git clone --recursive https://github.com/yiq/iobio.local
+cd iobio.local
+./fetch-data.sh             # this will take a while.  (1)
+./fetch-images.sh           # optional (2)
+sudo docker-compose up -d
 ```
-Once everything starts up, open a browser on your client machine, and go to `http://<hostname>/`
+Once everything starts up, open a browser on your client machine, and go to `http://<public-hostname>/`
 
 ## Explaination
 ### Line (1)
@@ -36,6 +36,3 @@ Some of the backend services require data files such as the human reference. Thi
 
 ### Line (2)
 Download all the needed docker images manually instead of let docker-compose handle it. This can also be used to update images when newer versions are released in the future.
-
-### Line (3)
-This script takes one argument, which is the FQDN of the server, and modify `globalsDeployment.js.tmpl` which will then be copied into the stock gene.iobio source tree to adjust the service endpoints accordingly. After that, the script will run `docker-compose up -d` to bring the whole stack up.
