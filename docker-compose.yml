@@ -71,6 +71,7 @@ bcftools:
   image: qiaoy/iobio.bcftools:v2.3
 freebayes:
   image: qiaoy/iobio.freebayes:v2.3
+  volumes:
     - ./data-vol/data:/home/iobio/workdir/data:ro
 vcflib:
   image: qiaoy/iobio.vcflib:v2.3
