@@ -8,8 +8,6 @@ nginx:
     - ./nginx/services.d:/etc/nginx/services.d:ro
     - ./nginx/server.crt:/etc/nginx/server.crt:ro
     - ./nginx/server.key:/etc/nginx/server.key:ro
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
-    - ./data-vol/local_cache:/usr/share/nginx/local_cache:ro
   links:
     - geneinfo
     - gene2pheno
@@ -38,101 +36,62 @@ nginx:
 geneinfo:
   image: qiaoy/iobio.geneinfo:v2.3.1
   volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     - ./data-vol/geneinfo:/home/iobio/workdir/geneinfo:ro
 gene2pheno:
   image: qiaoy/iobio.gene2pheno:v1.0
   volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     - ./data-vol/gene2pheno:/home/iobio/workdir/gene2pheno:ro
 genomebuild:
   image: qiaoy/iobio.genomebuild:v2.3
   volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     - ./data-vol/genomebuild:/home/iobio/workdir/genomebuild:ro
 hpo:
   image: qiaoy/iobio.hpo:v1.0
   volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     - ./data-vol/hpo:/home/iobio/workdir/hpo:ro
 coverage:
   image: qiaoy/iobio.coverage:v2.4
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 bambinner:
   image: qiaoy/iobio.bambinner:v2.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 bamreaddepther:
   image: qiaoy/iobio.bamreaddepther:v2.4
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 bamstatsalive:
   image: qiaoy/iobio.bamstatsalive:v2.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 vcfstatsalive:
   image: qiaoy/iobio.vcfstatsalive:v2.4
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 genecoverage:
   image: qiaoy/iobio.genecoverage:v2.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 knownvariants:
   image: qiaoy/iobio.knownvariants:v2.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 od_samtools:
   image: qiaoy/iobio.samtools_od:v2.3.4
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 samtools:
   image: qiaoy/iobio.samtools:v2.3.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 bcftools:
   image: qiaoy/iobio.bcftools:v2.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 freebayes:
   image: qiaoy/iobio.freebayes:v2.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     - ./data-vol/data:/home/iobio/workdir/data:ro
 vcflib:
   image: qiaoy/iobio.vcflib:v2.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 vt:
   image: qiaoy/iobio.vt:v2.3
   volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     - ./data-vol/data:/home/iobio/workdir/data:ro
 od_tabix:
   image: qiaoy/iobio.tabix_od:v2.3.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 tabix:
   image: qiaoy/iobio.tabix:v2.3.1
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 vcfdepther:
   image: qiaoy/iobio.vcfdepther:v2.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 af:
   image: qiaoy/iobio.af:v2.3.1
   volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     - ./data-vol/afdata:/home/iobio/workdir/afdata:ro
 vep:
   image: qiaoy/iobio.vep:v2.4.1
   volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     - ./data-vol/vep-cache:/home/iobio/workdir/vep-cache:ro
     - ./data-vol/data:/home/iobio/workdir/data:ro
 phenolyzer:
   image: qiaoy/iobio.phenolyzer:v2.3
-  volumes:
-    - ./ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
