@@ -8,23 +8,27 @@ This repository contains scripts and config files for locally deploy IOBIO backe
   * docker-compose 1.4.2 or newer [install doc](https://docs.docker.com/compose/install/)
   * 60G free disk space
 
-# Getting Started
-To get started, you need to have a hostname assigned to your server so that
-both the server and the clients can resolve to the same ip address. This is
-because iobio applications make websocket connections to the underlying
-services running on the server, and the services themselves also make
-connections to other services. Hostnames such as '*localhost*' (or loopback IP
-*127.0.0.1*) has different meanings between the client, the server itself, and
-the different service containers, making it unsuitable even for testing
-purpose. The FQDN of a server managed by either internal or external DNS works
-the best. Otherwise, you may have to come up with a name, and manually mess
-with `/etc/hosts` on both the server and the clients.
+# Things to plan before launching
+  * decide where you want to put about 60GB data on, if not root directory (optional step 1)
+  * decide if you want to run HTTPS (optional step 2)
 
 ## Quick-Start
 ```bash
-git clone --recursive https://github.com/yiq/iobio.local
-cd iobio.local
-./fetch-data.sh             # this will take a while.  (1)
+git clone https://github.com/yiq/iobio.backend
+cd iobio.backend
+
+## optional step 1: if you need to put data volumes on a different drive
+## the easiest way is to remove the 'data-vol' directory, and create
+## a symbolic link with the same name to where you want to put data in
+# rm -r data-vol
+# ln -s /mnt/data-vol
+
+## optional step 2: if you want to run HTTPS, copy your certificate and
+## key file to nginx/server.crt and nginx/server.key. The certificate
+## needs to follow nginx structure if intermediate chain certs are used.
+## see: http://nginx.org/en/docs/http/configuring_https_servers.html#chains
+
+./fetch-data.sh             # this will take a while (1)
 ./fetch-images.sh           # optional (2)
 sudo docker-compose up -d
 ```
