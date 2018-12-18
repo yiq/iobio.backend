@@ -34,7 +34,7 @@ cd iobio.backend
 
 ./fetch-data.sh             # this will take a while (1)
 ./fetch-images.sh           # optional (2)
-sudo docker-compose up -d
+docker-compose up -d
 ```
 Once everything starts up, open a browser on your client machine, and go to `http://<public-hostname>/`
 
