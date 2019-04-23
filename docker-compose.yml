@@ -54,7 +54,7 @@ coverage:
 bambinner:
   image: qiaoy/iobio.bambinner:v2.3
 bamreaddepther:
-  image: qiaoy/iobio.bamreaddepther:v2.4
+  image: qiaoy/iobio.bamreaddepther:v3.0
 bamstatsalive:
   image: qiaoy/iobio.bamstatsalive:v2.3
 vcfstatsalive:

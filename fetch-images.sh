@@ -6,7 +6,7 @@ docker pull qiaoy/iobio.genomebuild:v2.3
 docker pull qiaoy/iobio.hpo:v1.0
 docker pull qiaoy/iobio.coverage:v2.4
 docker pull qiaoy/iobio.bambinner:v2.3
-docker pull qiaoy/iobio.bamreaddepther:v2.4
+docker pull qiaoy/iobio.bamreaddepther:v3.0
 docker pull qiaoy/iobio.bamstatsalive:v2.3
 docker pull qiaoy/iobio.vcfstatsalive:v2.4
 docker pull qiaoy/iobio.genecoverage:v2.3
